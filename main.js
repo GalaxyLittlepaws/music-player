@@ -39,9 +39,9 @@ function loadTrack(track_index) {
   now_playing.textContent =
     "PLAYING " + (track_index + 1) + " OF " + track_list.length;
 
-  // Set an interval of 1000 milliseconds
+  // Set an interval of 500 milliseconds
   // for updating the seek slider
-  updateTimer = setInterval(seekUpdate, 1000);
+  updateTimer = setInterval(seekUpdate, 500);
 
   // Move to the next track if the current finishes playing
   // using the 'ended' event
@@ -86,6 +86,9 @@ function playTrack() {
 
   // Replace icon with the pause icon
   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+
+  // Animate Disc
+  track_art.classList.add('play');
 }
 
 function pauseTrack() {
@@ -95,6 +98,9 @@ function pauseTrack() {
 
   // Replace icon with the play icon
   playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+
+  // Stop disc animation
+  track_art.classList.remove('play');
 }
 
 function nextTrack() {
